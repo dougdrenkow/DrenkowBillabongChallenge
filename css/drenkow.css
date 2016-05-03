@@ -1,0 +1,15 @@
+.imageHolder {text-align:center;}
+
+.imageHolder img {margin:10px auto 0; border:none; padding:0 0; width:220px;}
+
+h6 {margin:10px 10px; border:none; padding:0 0; text-align:center; color:#333; font-family:Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px;}
+
+#loadMoreBttn {margin:30px auto; border:none; padding:15px 15px; width:250px; height:50px; text-align:center; color:#ffffff; font-family:Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size:16px; cursor:pointer;}
+
+#loadMoreBttn,
+#loadMoreBttn:visited {background-color:#4bad40;}
+
+#loadMoreBttn:hover {background-color:red;}
+
+#loadMoreBttn:focus,
+#loadMoreBttn:active {background-color:black;}
