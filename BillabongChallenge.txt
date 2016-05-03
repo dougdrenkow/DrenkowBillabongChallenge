@@ -1,0 +1,24 @@
+The following is a development challenge which will help Billabong  gauge technical approach, methods used, ability to complete tasks and demonstration of resourcefulness. There is no right or wrong answer. Please execute to the best of your abilities.
+ 
+Deadline: Tuesday 5pm PST.
+ 
+Development guidelines are as follows:
+ 
+1. Create a public github repository
+2. See the attached wireframe for reference and recreate using any/all of the following tools:
+- Require, Backbone, Handlebars, jQuery, underscore, Bootstrap
+- Sass, Less
+- Node.js/npm, gulp, grunt
+3. Functionality required:
+- Upon "Load More" button click/tap, 4 additional items must be loaded into view
+- Must be responsive, showing 4 items per row on desktop, 2 items per row on tablet, single column on mobile
+4. Bonus points
+- optimization of javascript/css
+- comments within code
+
+
+
+
+4bad40
+
+282x50
