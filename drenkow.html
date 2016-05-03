@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="drenkowBillabong"><!-- I create Web apps with AngularJS -->
+
+	<head>
+
+		<title>Drenkow | Billabong Challenge</title>
+
+		<meta charset="utf-8">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link rel="stylesheet" href="css/drenkow.css">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        
+        <!-- best to put AngularJS script at bottom of body -->
+
+	</head>
+
+	<body ng-controller="MainCtrl as ctrl"><!-- 'Controller as' syntax preferred, to avoid issues keeping track of scopes -->
+
+		<div class="container">
+
+			<div class="row">
+
+            	<div ng-repeat="product in ctrl.products">
+
+                	<div class="clearfix" ng-if="$index % 4 == 0"></div><!-- so that row breaks for tablets and desktops -->
+
+                	<div ng-show="$index >= ctrl.indexMin && $index <= ctrl.indexMax" class="col-md-3 col-sm-6 col-xs-12"><!-- conditional ng-show vs. probably more complicated jQuery solution -->
+
+                    <div class="imageHolder"><img src="{{product.imageUrl}}" alt="{{product.name}}"></div><!-- could do similar data-binding with Handlebars -->
+
+                    <h6>{{product.name}}</h6>
+
+                </div><!-- .col-md-3 ... -->
+
+            </div><!-- ng-repeat -->
+
+        </div><!-- .row -->
+
+        <div id="loadMoreBttn" ng-click="ctrl.loadMore()">Load More</div><!-- See controller, below, for this function as well as variables on its scope; but note that ng-repeat creates its own scope, as tracked by $index -->
+
+    </div><!-- .container -->
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script><!-- an oldie but goodie -->
+
+		<script type="text/javascript">
+			
+			angular.module('drenkowBillabong', [])
+				
+				.controller('MainCtrl', [function() { /* use array syntax, vs. errors with minification -- I'd recommend UglifyJS, as with Grunt */
+					
+					var self = this; <!-- See note above about 'Controller as' syntax -->
+					
+					self.indexMin=0;
+					
+					self.indexMax=3;
+					
+					self.loadMore = function() {
+						if (self.indexMax==self.products.length-1) { /* reset, return to first four; would also want to account for case in which last row shown did not have four items -- do later */
+							self.indexMin=0;
+							self.indexMax=3;
+						return;	
+						}
+						self.indexMin=self.indexMin+4;
+						self.indexMax=self.indexMax+4;	
+						}
+					self.products = [ /* In Production, fetch JSON object from RESTful API -- as with $http or, cleaner, $Resource service from separate ngResource module -- then convert JSON object to array, so that we can use ng-repeat */
+						{
+							imageUrl: 'images/1.PNG',
+							name: 'PRODUCT 1'
+						},
+						{
+							imageUrl: 'images/2.PNG',
+							name: 'PRODUCT 2'
+						},  
+						{
+							imageUrl: 'images/3.PNG',
+							name: 'PRODUCT 3'
+						},
+						{
+							imageUrl: 'images/4.PNG',
+							name: 'PRODUCT 4'
+						},
+						{
+							imageUrl: 'images/5.PNG',
+							name: 'PRODUCT 5'
+						},
+						{
+							imageUrl: 'images/6.PNG',
+							name: 'PRODUCT 6'
+						},  
+						{
+							imageUrl: 'images/7.PNG',
+							name: 'PRODUCT 7'
+						},
+						{
+							imageUrl: 'images/8.PNG',
+							name: 'PRODUCT 8'
+						},
+						{
+							imageUrl: 'images/9.PNG',
+							name: 'PRODUCT 9'
+						},
+						{
+							imageUrl: 'images/10.PNG',
+							name: 'PRODUCT 10'
+						},  
+						{
+							imageUrl: 'images/11.PNG',
+							name: 'PRODUCT 11'
+						},
+						{
+							imageUrl: 'images/12.PNG',
+							name: 'PRODUCT 12'
+						}
+					];
+				}]);
+        
+        </script>
+
+	</body>
+
+</html>
